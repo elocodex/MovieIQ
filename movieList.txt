@@ -1,0 +1,8 @@
+**All that's left for me to build on the movielist project
+- Create/add illustrations or texts for when there is error in Fetching All movies.
+- Create/add illustrations or texts for when there is error in Fetching Trending movies
+- Create another page that displays information about the movie selected.
+- In that new page, create a "Watchlist" that allows to user to save the movies they find interesting. I would need to use appwrite's Database functions to implement this. I need to also find a solution if I'd not be able to Make it in a way that I'd need to create collections for the user.
+-Create footer
+
+- Finally, host the website. Add it to my CV with explaining the details about the project and how it serves the user.
