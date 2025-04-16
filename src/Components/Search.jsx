@@ -10,6 +10,7 @@ const Search = ({searchTerm, setSearchTerm}) => {
         type="text"
         placeholder='Search through thousands of movies!'
         value={searchTerm} 
+        className='text-sm md:text-lg'
         onChange={(e) => setSearchTerm(e.target.value)} />
       </div>
     </div>
