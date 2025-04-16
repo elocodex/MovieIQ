@@ -25,7 +25,8 @@ const Homepage = () => {
   const [trendingMovies, setTrendingMovies] = useState([])
   
   const [currentPage, setCurrentPage] = useState(() => {
-    return localStorage.getItem('savedPage')
+    const savedPage = localStorage.getItem('savedPage');
+    return savedPage ? parseInt(savedPage, 10) : 1;
   });
 
   const [totalPages, setTotalPages] = useState(0)
@@ -41,6 +42,8 @@ const Homepage = () => {
   const fetchMovies = async (query = '', page = 1) => {
     setIsLoading(true)
     setErrorMessage("")
+
+    const validPage = isNaN(page) || page <= 0 ? 1 : page;  // Default to page 1 if invalid
 
     try {
       const endpoint =
