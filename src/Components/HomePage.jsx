@@ -48,8 +48,8 @@ const Homepage = () => {
     try {
       const endpoint =
         query 
-          ? `${API_BASE_URL}/search/movie?query=${encodeURI(query)}&page=${page}`
-          : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&page=${page}`
+          ? `${API_BASE_URL}/search/movie?query=${encodeURI(query)}&page=${validPage}`
+          : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&page=${validPage}`
 
       const response = await fetch(endpoint, API_OPTIONS)
 
