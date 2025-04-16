@@ -23,9 +23,6 @@ const Homepage = () => {
   const [errorMessage, setErrorMessage] = useState("")
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("")
   const [trendingMovies, setTrendingMovies] = useState([])
-
-  console.log("Saved Page:" + localStorage.getItem('savedPage'));
-  
   
   const [currentPage, setCurrentPage] = useState(() => {
     return localStorage.getItem('savedPage')
@@ -52,6 +49,7 @@ const Homepage = () => {
           : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&page=${page}`
 
       const response = await fetch(endpoint, API_OPTIONS)
+
       
       if(!response.ok){
         throw new Error('Failed to fetch movies')
@@ -59,6 +57,7 @@ const Homepage = () => {
         const data = await response.json();
 
         if(data.Response === 'false'){
+          console.log(data.Error);
           setErrorMessage(data.Error || "Failed to fetch!")
           setMovieList([])
           return;
@@ -128,7 +127,7 @@ const Homepage = () => {
       <div className='wrapper'>
         <header>
           <img src={heroImg} alt="Hero Banner" />
-          <h1>Discover <span className='text-gradient'>Movies</span> Like an Expert, Watch Like a Pro.</h1>
+          <h1 className='text-3xl sm:text-6xl'>Discover <span className='text-gradient'>Movies</span> Like an Expert, Watch Like a Pro.</h1>
 
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
